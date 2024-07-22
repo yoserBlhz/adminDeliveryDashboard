@@ -1,0 +1,161 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+    <app-sidebar class="col-auto" [class.sidebar-collapsed]="isSidebarClosed" (toggle)="handleSidebarToggle($event)"></app-sidebar>
+    <main class="col" [class.main-expanded]="isSidebarClosed">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Invoice Track</h1>
+        <button class="btn btn-primary" (click)="openInvoiceModal()">
+          <i class="bi bi-plus"></i> Add Invoice
+        </button>
+      </div>
+
+      <div class="col-md-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Invoice id</th>
+                    <th>Description</th>
+                    <th>Client Name</th>
+                    <th>Client Phone</th>
+                    <th>Location</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Livreur</th>
+                    <th>Action</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let facture of factures">
+                    <td>{{ facture._id }}</td>
+                    <td>{{ facture.description }}</td>
+                    <td>{{ facture.clientName}}</td>
+                    <td>{{ facture.clientPhone }}</td>
+                    <td>{{ facture.location }}</td>
+                    <td>{{ facture.amount }}</td>
+                    <td [ngClass]="{
+                          'status-completed': facture.status === 'Completed',
+                          'status-picked-up': facture.status === 'PickedUp',
+                          'status-failed': facture.status === 'Failed',
+                          'status-en-stock': facture.status === 'enStock'
+                        }">{{ facture.status }}
+                    </td>
+                   <td>{{ facture.livreur}}</td>
+                   <td>
+                    <button class="btn update btn-sm me-2" (click)="openEditModal(facture)">Update</button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteFacture(facture._id)">Delete</button>
+                  </td>  
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+<!--Invoice Modal-->
+<div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="invoiceModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="invoiceModalLabel">Add Invoice</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="clientName" class="form-label">Client Name</label>
+            <input type="text" class="form-control" id="clientName" [(ngModel)]="clientName" name="clientName">
+          </div>
+          <div class="mb-3">
+            <label for="clientPhone" class="form-label">Client Phone</label>
+            <input type="text" class="form-control" id="clientPhone" [(ngModel)]="clientPhone" name="clientPhone">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description">
+          </div>
+          <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" [(ngModel)]="location" name="location">
+          </div>
+          <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="text" class="form-control" id="amount" [(ngModel)]="amount" name="amount">
+          </div>
+          <div class="mb-3">
+            <label for="livreur" class="form-label">Transporteur</label>
+            <select class="form-select" id="livreur" [(ngModel)]="selectedLivreurId" name="livreur">
+              <option value="" disabled selected="selected">Choisir le livreur</option>
+              <option *ngFor="let livreur of livreurs" [value]="livreur._id">{{ livreur.nom+' '+livreur.prenom}}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="saveInvoice()">Save Invoice</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Edit Modal-->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Update Invoice</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="clientName" class="form-label">Client Name</label>
+            <input type="text" class="form-control" id="clientName" [(ngModel)]="clientName" name="clientName">
+          </div>
+          <div class="mb-3">
+            <label for="clientPhone" class="form-label">Client Phone</label>
+            <input type="text" class="form-control" id="clientPhone" [(ngModel)]="clientPhone" name="clientPhone">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description">
+          </div>
+          <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" [(ngModel)]="location" name="location">
+          </div>
+          <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="text" class="form-control" id="amount" [(ngModel)]="amount" name="amount">
+          </div>
+          <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <input type="text" class="form-control" id="status" [(ngModel)]="status" name="status">
+          </div>
+          <div class="mb-3">
+            <label for="livreur" class="form-label" >Transporteur</label>
+            <select class="form-select" id="livreur" [(ngModel)]="selectedLivreurId" name="livreur">
+              <option value="" disabled selected="selected">Choisir le livreur</option>
+              <option *ngFor="let livreur of livreurs" [value]="livreur._id">{{ livreur.nom+' '+livreur.prenom}}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="updateFacture()">Update Invoice</button>
+      </div>
+    </div>
+  </div>
+</div>

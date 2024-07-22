@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+}
+
+html,body {
+  height: 100%;
+  overflow: hidden; /* Empêche le défilement */
+  margin: 0;
+}
+
+body {
+  background-color: base-bgcolor;
+  color: base-color;
+  margin: 0;
+  min-height: 100%;
+}
+
+.align {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  &__item {
+
+    &--start {
+      align-self: flex-start;
+    }
+
+    &--end {
+      align-self: flex-end;
+    }
+
+  }
+
+}
+
+.site {
+
+  &__main {
+  }
+
+  &__logo {
+    margin-bottom: 2rem;
+  }
+
+}
+
+input {
+  border: 0;
+  font: inherit;
+margin-top: 1rem;
+  &::placeholder {
+    color: input-placeholder-color;
+  }
+
+}
+
+.form {
+
+  &__field {
+    margin-bottom: 1rem;
+    width: 5rem;
+    
+  }
+
+  input {
+    outline: 0;
+    padding: .5rem 1rem;
+
+    &[type="email"],
+    &[type="password"] {
+      width: 100%;
+    }
+
+  }
+
+}
+.form__field3
+{
+    height: 5rem;
+}
+.grid {
+  margin: 0 auto;
+  max-width: grid-max-width;
+  width: grid-width;
+}
+
+h2 {
+  font-size: 2.75rem;
+  font-weight: 100;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+svg {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+
+a {
+  color: link-color
+}
+
+.register {
+  text-align: center;
+  padding: 4rem 2rem;
+  width: 27rem;
+  margin-top: 7rem;
+  input {
+    border: 1px solid #242c37;
+    border-radius: 999px;
+    background-color: transparent;
+    text-align: center;
+   
+    &[type="email"],
+    &[type="password"] {
+      background-repeat: no-repeat;
+      background-size: 1.5rem;
+      background-position: 1rem 50%;
+    }
+
+    &[type="email"] {
+      background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#242c37"><path d="M256.017 273.436l-205.17-170.029h410.904l-205.734 170.029zm-.034 55.462l-205.983-170.654v250.349h412v-249.94l-206.017 170.245z"/></svg>');
+    }
+
+    &[type="password"] {
+      background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#242c37"><path d="M195.334 223.333h-50v-62.666c0-61.022 49.645-110.667 110.666-110.667 61.022 0 110.667 49.645 110.667 110.667v62.666h-50v-62.666c0-33.452-27.215-60.667-60.667-60.667-33.451 0-60.666 27.215-60.666 60.667v62.666zm208.666 30v208.667h-296v-208.667h296zm-121 87.667c0-14.912-12.088-27-27-27s-27 12.088-27 27c0 7.811 3.317 14.844 8.619 19.773 4.385 4.075 6.881 9.8 6.881 15.785v22.942h23v-22.941c0-5.989 2.494-11.708 6.881-15.785 5.302-4.93 8.619-11.963 8.619-19.774z"/></svg>');
+    }
+
+    &[type="submit"] {
+      background-image: linear-gradient(160deg, #202E5C 0%, #202E5C 100%);
+      color: #fff;
+      margin-bottom: 6rem;
+      width: 100%;
+    }
+
+  }
+
+}
+@media (max-width: 600px) {
+    .register {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .register h2 {
+        font-size: 1.5em;
+    }
+
+    .form__field input,
+    .form__field3 input {
+        font-size: 1em;
+        padding: 8px;
+    }
+
+    .form__field3 input {
+        font-size: 1.2em;
+        padding: 12px;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+}
+
+
+
+
+
+  /* Styles spécifiques pour la page de sign up */
+
+/* Réinitialisation des marges et paddings */
+
+
+/* Style pour le conteneur principal */
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh; 
+}
+
+.align__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register {
+  width: 100%;
+  max-width: 1700px; /* Ajuster la largeur maximale selon vos besoins */
+  display: flex;
+  justify-content: center;
+}
+
+.split-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.left-side {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.left-side img {
+  max-width: 100%;
+  height: auto;
+}
+
+.right-side {
+  flex: 1;
+  padding: 20px;
+}
+
+.right-side h2 {
+  text-align: center;
+}
+
+.form__field {
+  margin-bottom: 20px;
+}
+
+.form__field3 {
+  text-align: center;
+}
+
+.text-danger {
+  color: red;
+}
+
+.color{
+  color: #202E5C;
+
+}

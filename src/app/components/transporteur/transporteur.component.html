@@ -1,0 +1,225 @@
+<!--<app-navbar></app-navbar>
+  <div class="container-fluid">
+    <div class="row">
+      <app-sidebar class="col-auto" [class.sidebar-collapsed]="isSidebarClosed" (toggle)="handleSidebarToggle($event)"></app-sidebar>
+      <main class="col" [class.main-expanded]="isSidebarClosed">
+  
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Delivery Man</h1>
+          <button class="btn btn-primary" (click)="openSettingsModal()">
+            <i class="bi bi-plus"></i> Add
+          </button>
+        </div>
+        <div class="col-md-8">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Nom</th>
+                      <th>Prenom</th>
+                      <th>Phone</th>
+                      <th>Email</th>
+                      <th>Password</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let transporteur of transporteurs">
+                      <td>{{ transporteur._id }}</td>
+                      <td>{{ transporteur.nom }}</td>
+                      <td>{{ transporteur.prenom }}</td>
+                      <td>{{ transporteur.telephone }}</td>
+                      <td>{{ transporteur.email }}</td>
+                      <td>{{ transporteur.password }}</td>
+        
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </main>
+    </div>
+  </div>
+  
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settingsModalLabel">Add Transporteur</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="setting1" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom">
+          </div>
+          <div class="mb-3">
+            <label for="setting2" class="form-label">Prenom</label>
+            <input type="text" class="form-control" id="prenom">
+          </div>
+          <div class="mb-3">
+            <label for="setting3" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone">
+          </div>
+          <div class="mb-3">
+            <label for="setting3" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email">
+          </div>
+          <div class="mb-3">
+            <label for="setting3" class="form-label">Password</label>
+            <input type="text" class="form-control" id="password">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+-->
+
+
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+    <app-sidebar class="col-auto" [class.sidebar-collapsed]="isSidebarClosed" (toggle)="handleSidebarToggle($event)"></app-sidebar>
+    <main class="col" [class.main-expanded]="isSidebarClosed">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Delivery Man</h1>
+        <button class="btn btn-primary" (click)="openSettingsModal()">
+          <i class="bi bi-plus"></i> Add
+        </button>
+      </div>
+      <div class="col-md-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let transporteur of transporteurs">
+                    <td>{{ transporteur._id }}</td>
+                    <td>{{ transporteur.nom }}</td>
+                    <td>{{ transporteur.prenom }}</td>
+                    <td>{{ transporteur.telephone }}</td>
+                    <td>{{ transporteur.email }}</td>
+                    <td>{{ transporteur.password }}</td>
+                    <td>
+                      <button class="btn update btn-sm me-2" (click)="openEditModal(transporteur)">Update</button> 
+                      <button class="btn btn-danger btn-sm" (click)="deleteTransporteur(transporteur._id)">Delete</button>
+                    </td>                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+<!--Settings Modal-->
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settingsModalLabel">Add Transporteur</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom" [(ngModel)]="nom" name="nom">
+          </div>
+          <div class="mb-3">
+            <label for="prenom" class="form-label">Prenom</label>
+            <input type="text" class="form-control" id="prenom" [(ngModel)]="prenom" name="prenom">
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone" [(ngModel)]="telephone" name="telephone">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="saveTransporteur()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Edit Modal-->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Transporteur</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text"  class="form-control" id="nom" [(ngModel)]="nom" name="nom">
+          </div>
+          <div class="mb-3">
+            <label for="prenom" class="form-label">Prenom</label>
+            <input type="text" class="form-control" id="prenom" [(ngModel)]="prenom" name="prenom">
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone" [(ngModel)]="telephone" name="telephone">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email"  class="form-control" id="email" [(ngModel)]="email" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password"  class="form-control" id="password" [(ngModel)]="password" name="password">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="updateTransporteur()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,3 +1,17 @@
 import { Routes } from '@angular/router';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { ReclamationComponent } from './components/reclamation/reclamation.component';
+import { TransporteurComponent } from './components/transporteur/transporteur.component';
+import { SuiviFactureComponent } from './components/suivi-facture/suivi-facture.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    { path: '', component: LoginComponent },
+    //{ path: 'home', component: DashboardComponent },
+    { path: 'signup', component: SignupComponent },
+    { path: 'reclamations', component: ReclamationComponent },
+    { path: 'invoiceTrack', component: SuiviFactureComponent },
+    { path: 'transporteur', component: TransporteurComponent},
+    { path: 'dashboard', component: DashboardComponent},
+];

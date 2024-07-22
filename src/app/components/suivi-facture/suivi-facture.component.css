@@ -1,0 +1,27 @@
+.status-completed {
+    color: #28a745;
+    font: bold;
+  }
+  
+  .status-picked-up {
+    color: orange;
+    font: bold ;
+
+  }
+  
+  .status-failed {
+    color: #dc3545;
+    font: bold;
+
+  }
+  
+  .status-en-stock {
+    color: #0da4bb;
+    font: bold ;
+
+  }
+  
+
+  .update{
+    background-color:#91B3FA
+}

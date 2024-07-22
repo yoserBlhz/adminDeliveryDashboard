@@ -1,0 +1,39 @@
+.navbar 
+{
+    background-color: rgb(20, 20, 20);
+     margin-bottom:20px ;
+     display: block;
+}
+.navbar .navbar-brand
+{
+    color:#E50914;
+    font-size: bold;
+}
+
+.navbar .nav-item .nav-link
+{
+    color:#ffffff;
+    font-size:medium;
+}
+.navbar .nav-item .nav-link:hover
+{
+    color:#E50914;
+    font-size: 18px;
+  
+}
+.align-left {
+    margin-right: 82% !important;
+  }
+  
+.pic img
+{
+    width: 30px;
+    height:30px;
+    border-radius: 50%;
+}
+.dropdown-item {
+    max-width: 200px; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }

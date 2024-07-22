@@ -1,0 +1,30 @@
+<div class="parent relative">
+    <video autoplay muted loop>
+      <source src="assets/vid/loginPAge.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la balise vidéo.
+    </video>
+    <div class="child absolute top-30 left-0 md:w-3/12 my-36 mx-auto text-white rounded-lg bg-opacity-80">
+      <form>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" class="form-control" id="email" [(ngModel)]="loginobject.email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" [(ngModel)]="loginobject.password" name="password" required>
+        </div>
+        <button type="button" (click)="login()" class="btn btn-success btn-block registerbtn ">Login</button>
+      </form>
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">Login Failed</div>
+      <div class="container up">
+        <div id="google-btn"></div>
+      </div>
+      <p>
+        <a class="nav-link active" aria-current="page" routerLink="/signup">Don't Have An Account?
+          <span style="color: #91B3FA;"> Create A New Account</span>
+        </a>
+      </p>
+    </div>
+  </div>
+  
+  
