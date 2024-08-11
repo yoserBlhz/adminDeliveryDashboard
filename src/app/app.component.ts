@@ -1,6 +1,6 @@
-import { Component, ApplicationRef  } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Component, ApplicationRef, Inject, PLATFORM_ID  } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
@@ -29,5 +29,17 @@ declare var bootstrap: any;
     
 })
 export class AppComponent {
-  
+   constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {}
+
+   /* ngOnInit() {
+      if (isPlatformBrowser(this.platformId)) {
+        window.addEventListener('popstate', () => {
+          const loginUser = sessionStorage.getItem('loginuser');
+          if (!loginUser) {
+            this.router.navigate(['/']);
+          }
+        });
+      }
+    }*/
+
 }
