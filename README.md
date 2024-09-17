@@ -1,27 +1,46 @@
-# AdminWebsite
+# Dashboard d'Administration pour le Service de Livraison
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
+## Description
 
-## Development server
+Ce projet est un tableau de bord d'administration pour la gestion du service de livraison. Il permet aux administrateurs de visualiser et de gérer les livreurs, les factures, ainsi que les réclamations des clients. Le tableau de bord fournit également des statistiques sur les performances de livraison à travers des graphiques et des rapports.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Fonctionnalités
 
-## Code scaffolding
+- **Gestion des livreurs** : Ajouter, modifier, et supprimer des livreurs.
+- **Gestion des factures** : Suivre et gérer les factures liées aux livraisons( Ajouter, modifier, et supprimer des factures).
+- **Gestion des réclamations** : Visualiser et résoudre les réclamations des clients.
+- **Suivi des livraisons** : Suivre le nombre des livraisons par livreur.
+- **Rapports et statistiques** : Générer des rapports avec des graphiques sur les performances de livraison.
+  
+## Technologies utilisées
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Frontend** : Angular
+- **Backend** : NestJS
+- **Base de données** : MongoDB
+- **Graphiques** : Chart.js
+- **Authentification** : JWT (JSON Web Token) et AuthGuard
+- **Notifications SMS** : Twilio API
+- **Interface de conception** : Figma
 
-## Build
+## Prérequis
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Avant de lancer le projet, assurez-vous d'avoir les éléments suivants installés :
 
-## Running unit tests
+- Node.js 
+- Angular CLI 
+- MongoDB
+- Un compte Twilio pour l'envoi des SMS
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Installation et Exécution
+ 1. Cloner le dépôt
 
-## Running end-to-end tests
+2. Installation des dépendances:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+      npm install
 
-## Further help
+4. Lancer le serveur:
+   
+      npm run start
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+L'application sera accessible via http://localhost:4200.
+
