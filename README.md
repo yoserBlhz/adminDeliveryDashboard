@@ -44,3 +44,13 @@ Avant de lancer le projet, assurez-vous d'avoir les éléments suivants install�
 
 L'application sera accessible via http://localhost:4200.
 
+<img width="1272" height="587" alt="Image" src="https://github.com/user-attachments/assets/0ceca21d-841d-4539-b1e5-7402b6d0440c" />
+
+<img width="1283" height="596" alt="Image" src="https://github.com/user-attachments/assets/a72af0c2-2dd2-4ecb-8074-9646105e05ab" />
+
+<img width="1269" height="486" alt="Image" src="https://github.com/user-attachments/assets/a7126da1-401b-4a62-a002-25c773932f2d" />
+
+<img width="1272" height="443" alt="Image" src="https://github.com/user-attachments/assets/fba2dd45-6fbf-4f93-8c8c-faa2faddef87" />
+
+<img width="1277" height="275" alt="Image" src="https://github.com/user-attachments/assets/518f2294-8e48-46df-b1cd-44b8d497329d" />
+
